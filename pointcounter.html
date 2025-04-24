@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poängräknare</title>
+</head>
+<body>
+    <div id="player-container"></div>
+    <button id="add-player-btn">Lägg till spelare</button>
+
+    <script>
+        let playerCount = 0;
+
+        document.getElementById('add-player-btn').addEventListener('click', () => {
+            playerCount++;
+            const playerColumn = document.createElement('div');
+            playerColumn.style.display = 'inline-block';
+            playerColumn.style.margin = '10px';
+            playerColumn.style.textAlign = 'center';
+            playerColumn.style.border = '1px solid black';
+            playerColumn.style.padding = '5px';
+            playerColumn.style.position = 'relative';
+            playerColumn.innerHTML = `
+                <h3>Spelare ${playerCount}</h3>
+                <div style="height: 20px; border-bottom: 1px solid black;"></div>
+                <div style="height: 20px; border-bottom: 1px solid black; width: 100%;"></div>
+                <div style="height: 20px; border-bottom: 1px solid black; width: 100%;"></div>
+                <button style="
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background-color: red;
+                    color: white;
+                    border: none;
+                    border-radius: 50%;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                " class="delete-btn">X</button>
+            `;
+            document.getElementById('player-container').appendChild(playerColumn);
+
+            playerColumn.querySelector('.delete-btn').addEventListener('click', () => {
+                playerColumn.remove();
+            });
+        });
+    </script>
+</body>
+</html>
