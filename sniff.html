@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sniff</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2e2f30;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #player-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #add-player-btn {
+            background-color: #4caf50;
+            color: rgb(8, 8, 8);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #add-player-btn:hover {
+            background-color: #45a049;
+        }
+
+        .player-column {
+            background-color: #6c8463;
+            border: 2px solid #4f612b;
+            border-radius: 10px;
+            padding: 15px;
+            width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .player-column h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .player-column input[type="text"],
+        .player-column input[type="number"] {
+            width: 90%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #333;
+            background-color: #c8c8c8;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            font-family: 'Caveat', cursive;
+        }
+
+        .player-column input[type="text"] {
+            font-weight: bold;
+        }
+
+        .player-column .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #070707;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .player-column .delete-btn:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<body>
+    <div id="player-container"></div>
+    <button id="add-player-btn">Lägg till spelare</button>
+
+    <script>
+        let playerCount = 0;
+
+        function addPlayer() {
+            playerCount++;
+            const playerColumn = document.createElement('div');
+            playerColumn.className = 'player-column';
+            playerColumn.innerHTML = `
+                <div style="margin-bottom: 10px;">
+                    <input type="text" value="Spelare ${playerCount}" />
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <input type="number" value="0" />
+                </div>
+                <button class="delete-btn">X</button>
+            `;
+            document.getElementById('player-container').appendChild(playerColumn);
+
+            playerColumn.querySelector('.delete-btn').addEventListener('click', () => {
+                playerColumn.remove();
+            });
+        }
+
+        // Add two players on page load
+        addPlayer();
+        addPlayer();
+        addPlayer();
+        document.getElementById('add-player-btn').addEventListener('click', addPlayer);
+    </script>
+</body>
+</html>
