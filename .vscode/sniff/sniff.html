@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../sniff/style.css"
+    <title>Sniff</title>
+    
+</head>
+<body>
+    <div id="player-container"></div>
+    <button id="add-player-btn">Lägg till spelare</button>
+
+    <script>
+        let playerCount = 0;
+
+        function addPlayer() {
+            playerCount++;
+            const playerColumn = document.createElement('div');
+            playerColumn.className = 'player-column';
+            playerColumn.innerHTML = `
+                <div style="margin-bottom: 10px;">
+                    <input type="text" value="Spelare ${playerCount}" />
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <input type="number" value="0" />
+                </div>
+                <button class="delete-btn">X</button>
+            `;
+            document.getElementById('player-container').appendChild(playerColumn);
+
+            playerColumn.querySelector('.delete-btn').addEventListener('click', () => {
+                playerColumn.remove();
+            });
+        }
+
+        // Add two players on page load
+        addPlayer();
+        addPlayer();
+        addPlayer();
+        document.getElementById('add-player-btn').addEventListener('click', addPlayer);
+    </script>
+</body>
+</html>
