@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../sniff/style.css"
+    <link rel="stylesheet" href="../sniff/style.css">
     <title>Sniff</title>
-    
+   
 </head>
 <body>
-    <div id="player-container"></div>
-    <button id="add-player-btn">Lägg till spelare</button>
+    <div id="main-layout">
+        <!-- Fast sidomeny -->
+        <div id="sidebar">
+            <header><h3>Poäng</h3></header>
+            <button class="standardbutton">Ett par</button>
+            <button class="standardbutton">Två par</button>
+            <button class="standardbutton">Triss</button>
+            <button class="standardbutton">Stege</button>
+            <button class="standardbutton">Färg</button>
+            <button class="standardbutton">Kåk</button>
+            <button class="standardbutton">Fyrtal</button>
+            <button class="standardbutton">Straight flush</button>
+            <button class="goldenbutton">Royal straight flush</button>
+            <button class="greenbutton">Lyckad "Sniff"</button>
+            <button class="redbutton">Misslyckad "Sniff"</button>
+        </div>
+
+        <!-- Innehåll -->
+        <div id="content">
+            <div id="player-container"></div>
+            <button id="add-player-btn">Lägg till spelare</button>
+        </div>
+    </div>
 
     <script>
         let playerCount = 0;
@@ -35,7 +55,7 @@
             });
         }
 
-        // Add two players on page load
+        // Lägg till tre spelare vid sidan startar
         addPlayer();
         addPlayer();
         addPlayer();
