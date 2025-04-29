@@ -7,25 +7,119 @@
     <title>Sniff</title>
    
 </head>
-<body>
+
+<bod</body>y>
     <div id="main-layout">
         <!-- Fast sidomeny -->
         <div id="sidebar">
             <header><h3>Poäng</h3></header>
-            <button class="standardbutton">Ett par</button>
-            <button class="standardbutton">Två par</button>
-            <button class="standardbutton">Triss</button>
-            <button class="standardbutton">Stege</button>
-            <button class="standardbutton">Färg</button>
-            <button class="standardbutton">Kåk</button>
-            <button class="standardbutton">Fyrtal</button>
-            <button class="standardbutton">Straight flush</button>
-            <button class="goldenbutton">Royal straight flush</button>
-            <button class="greenbutton">Lyckad "Sniff"</button>
-            <button class="redbutton">Misslyckad "Sniff"</button>
+            <button class="standardbutton">Vunnet spel <br>+5</button>
+            <button class="standardbutton">Ett par <br>+1</button>
+            <button class="standardbutton">Två par <br>+2</button>
+            <button class="standardbutton">Triss <br>+3</button>
+            <button class="standardbutton">Stege <br>+4</button>
+            <button class="standardbutton">Färg <br>+5</button>
+            <button class="standardbutton">Kåk <br>+6</button>
+            <button class="standardbutton">Fyrtal <br>+8</button>
+            <button class="standardbutton">Straight flush <br>+11</button>
+            <button class="goldenbutton">Royal straight flush <br>+52</button>
+            <button class="greenbutton">Lyckad "Sniff" <br>+15</button>
+            <button class="redbutton">Misslyckad "Sniff" <br>-15</button>
         </div>
+        <script>
+            const buttonValues = [5, 1, 2, 3, 4, 5, 6, 8, 11, 52, 15, -15];
+            document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach((button, index) => {
+            button.dataset.value = buttonValues[index];
+            button.addEventListener('click', () => {
+                const numberInputs = document.querySelectorAll('#player-container input[type="number"]');
+                numberInputs.forEach(input => {
+                input.value = parseInt(input.value) + parseInt(button.dataset.value);
+                });
+            });
+            });
+            const newSidebar = document.createElement('div');
+            newSidebar.id = 'new-sidebar';
+            newSidebar.style.position = 'absolute';
+            newSidebar.style.left = '160px'; // Position the new sidebar separately
+            newSidebar.style.top = '0';
+            newSidebar.style.backgroundColor = '#015143'; // Match the color of the original sidebar
+            newSidebar.style.padding = '10px';
+            newSidebar.style.border = '3px solid #9b9c9c';
+            document.body.appendChild(newSidebar);
 
-        <!-- Innehåll -->
+            newSidebar.appendChild(playerSelector);
+
+            // Keep the original sidebar in its original position
+            const sidebar = document.getElementById('sidebar');
+            sidebar.style.position = 'absolute';
+            sidebar.style.left = '0'; // Ensure the original sidebar stays on the left
+            sidebar.style.top = '0';
+
+            // Ensure the new sidebar is visible when any button is pressed
+            document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach(button => {
+                button.addEventListener('click', () => {
+                    newSidebar.style.display = 'block';
+                });
+            });
+            const playerSelector = document.createElement('div');
+            playerSelector.id = 'player-selector';
+            playerSelector.innerHTML = `
+                <header><h3>Välj spelare</h3></header>
+                <select id="player-select">
+                    <option value="Spelare 1">Spelare 1</option>
+                    <option value="Spelare 2">Spelare 2</option>
+                    <option value="Spelare 3">Spelare 3</option>
+                </select>
+            `;
+            sidebar.appendChild(playerSelector);
+
+            function updatePlayerSelector() {
+                const playerSelect = document.getElementById('player-select');
+                playerSelect.innerHTML = '<option value="all">Alla</option>';
+                document.querySelectorAll('#player-container .player-column').forEach((playerColumn, index) => {
+                    const playerName = playerColumn.querySelector('input[type="text"]').value;
+                    const option = document.createElement('option');
+                    option.value = index;
+                    option.textContent = playerName;
+                    playerSelect.appendChild(option);
+                });
+            }
+
+            document.getElementById('player-container').addEventListener('input', updatePlayerSelector);
+            document.getElementById('player-container').addEventListener('DOMNodeInserted', updatePlayerSelector);
+            document.getElementById('player-container').addEventListener('DOMNodeRemoved', updatePlayerSelector);
+
+            document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    const selectedPlayer = document.getElementById('player-select').value;
+                    const numberInputs = document.querySelectorAll('#player-container input[type="number"]');
+                    numberInputs.forEach((input, idx) => {
+                        if (selectedPlayer === 'all' || parseInt(selectedPlayer) === idx) {
+                            input.value = parseInt(input.value) + parseInt(button.dataset.value);
+                        }
+                    });
+                    // Make the player selector visible when a button is pressed
+                    playerSelector.style.display = 'block';
+                });
+            });
+
+            // Initially hide the player selector
+            playerSelector.style.display = 'none';
+
+            // Ensure the sidebar is visible when any button is pressed
+            document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach(button => {
+                button.addEventListener('click', () => {
+                    sidebar.style.display = 'block';
+                    sidebar.style.position = 'absolute';
+                    sidebar.style.right = '0';
+                });
+            });
+
+            // Initially hide the sidebar
+            sidebar.style.display = 'none';
+        </script>
+
+        <!-- I</script>nnehåll -->
         <div id="content">
             <div id="player-container"></div>
             <button id="add-player-btn">Lägg till spelare</button>
@@ -63,3 +157,4 @@
     </script>
 </body>
 </html>
+</script>

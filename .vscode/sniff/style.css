@@ -6,6 +6,7 @@
             padding: 50px;
         }
 
+
         #player-container {
             display: flex;
             flex-wrap: wrap;
@@ -99,6 +100,9 @@
             background-color: #45a049;
         }
         
+        h3 {
+            margin: inherit;
+        }
 
         #sidebar {
             position: fixed;
@@ -115,12 +119,14 @@
             font-weight: bold;
             color: #ffffff;
             border: solid #9b9c9c;
+            background-color: #015143; /* Bakgrundsfärg för marginalen */
+            flex-shrink: 0; /* Förhindra att sidomenyn krymper */
         }
         
         #sidebar button {
-            margin: 5px 0; /* Lite mellanrum mellan knapparna */
-            padding: 10px;
-            width: 90%; /* Gör knapparna breda */
+            margin: 3px 0; /* Lite mellanrum mellan knapparna */
+            padding: 4px;
+            width: 87%; /* Gör knapparna breda */
             color: #ffffff;
             border:solid;
             border-radius: 5px;
@@ -134,13 +140,6 @@
         
         #main-layout {
     display: flex; /* Gör layouten horisontellt delad */
-}
-
-#sidebar {
-    background-color: #015143; /* Bakgrundsfärg för marginalen */
-    width: 150px; /* Bredd för vänstermarginalen */
-    height: 100vh; /* Full höjd */
-    flex-shrink: 0; /* Förhindra att sidomenyn krymper */
 }
 
 #content {
