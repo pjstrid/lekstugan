@@ -1,3 +1,7 @@
+        * {
+            font-family:  "Papyrus", fantasy;
+        }
+
         body {
             background-color: #2e2f30;
             color: #333;
@@ -57,7 +61,7 @@
             position: absolute;
             top: 2px;
             right: 2px;
-            background-color: #070707;
+            background-color: #333;
             color: white;
             border: none;
             border-radius: 50%;
@@ -72,6 +76,7 @@
         .player-column .delete-btn:hover {
             background-color: #870303;
         }
+       
         #add-player-btn {
             position: absolute;
             justify-content: center;
@@ -80,28 +85,23 @@
             transform: translate(-50%, -50%);
             border-style: solid;
             border-color: #3b4d35;
-        }
-        #add-player-btn {
+
             position: fixed;
             top: 10px;
            
             transform: translateX(-50%);
-            background-color:#4caf50;
+            background-color:#8a6587;
             padding: 10px;
             z-index: 1000;
             border-radius: 10px;
             font-family: "Papyrus", fantasy;
             font-weight: bold;
             margin-left: 77px; /* Gör knappen också justerad */
-
+            color: #333;
         }
 
         #add-player-btn:hover {
-            background-color: #45a049;
-        }
-        
-        h3 {
-            margin: inherit;
+            background-color: #bd8db5;
         }
 
         #sidebar {
@@ -109,7 +109,6 @@
             left: 0;
             top: 0;
             width: 150px; /* Anpassa bredden efter behov */
-            height: 100%; /* Låt marginalen täcka hela höjden på sidan */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -122,10 +121,11 @@
             background-color: #015143; /* Bakgrundsfärg för marginalen */
             flex-shrink: 0; /* Förhindra att sidomenyn krymper */
         }
-        
+
+
         #sidebar button {
             margin: 3px 0; /* Lite mellanrum mellan knapparna */
-            padding: 4px;
+            padding: 6px;
             width: 87%; /* Gör knapparna breda */
             color: #ffffff;
             border:solid;
@@ -140,6 +140,8 @@
         
         #main-layout {
     display: flex; /* Gör layouten horisontellt delad */
+   
+    
 }
 
 #content {
@@ -171,4 +173,55 @@ background-color: rgb(98, 73, 8);
 }
 .redbutton:hover {
     background-color: #5b0202;
+}
+
+.popup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 150px; /* Samma bredd som din sidebar */
+}
+.popup-content {
+    color: #333;
+    background-color: #638357;
+    border: 3px solid #4f612b;
+    text-align: center;
+    width:fit-content;
+    padding: 10px;
+    justify-content: first baseline;
+    border-radius: 5px;
+}
+
+.player-select-btn {
+    width: 80px;
+    height: 30px;
+    background-color: #333;
+    color: white;
+
+}
+
+.close-popup-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 11px;
+    text-align: center;
+}
+.close-popup-btn:hover {
+    background-color: #870303;
+}
+
+.player-select-btn:hover {
+    background-color: #575656;
+}
+
+header{
+    margin: none;
+    box-sizing: border-box;
+    font-weight: bold;
 }
