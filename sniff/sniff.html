@@ -28,21 +28,14 @@
         </div>
         <script>
             const buttonValues = [5, 1, 2, 3, 4, 5, 6, 8, 11, 52, 15, -15];
+        
             document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach((button, index) => {
-            button.dataset.value = buttonValues[index];
-            button.addEventListener('click', () => {
-                const numberInputs = document.querySelectorAll('#player-container input[type="number"]');
-                numberInputs.forEach(input => {
-                input.value = parseInt(input.value) + parseInt(button.dataset.value);
-                });
-            });
-            });
-            
-            document.querySelectorAll('.standardbutton, .goldenbutton, .greenbutton, .redbutton').forEach((button, index) => {
+                button.dataset.value = buttonValues[index];
+        
                 button.addEventListener('click', () => {
                     const playerContainer = document.getElementById('player-container');
                     const players = playerContainer.querySelectorAll('.player-column');
-                    
+        
                     // Create a popup
                     const popup = document.createElement('div');
                     popup.className = 'popup';
@@ -56,24 +49,26 @@
                         </div>
                     `;
                     document.body.appendChild(popup);
-
+        
                     // Add event listeners to player buttons
                     popup.querySelectorAll('.player-select-btn').forEach(playerButton => {
                         playerButton.addEventListener('click', () => {
                             const playerIndex = playerButton.dataset.playerIndex;
                             const selectedPlayerInput = players[playerIndex].querySelector('input[type="number"]');
+        
+                            // Assign points **only after selecting a player**
                             selectedPlayerInput.value = parseInt(selectedPlayerInput.value) + parseInt(button.dataset.value);
                             popup.remove();
                         });
                     });
-
+        
                     // Close popup button
                     popup.querySelector('.close-popup-btn').addEventListener('click', () => {
                         popup.remove();
                     });
                 });
             });
-     </script>
+        </script>
 
         <!-- Innehåll -->
         <div id="content">
