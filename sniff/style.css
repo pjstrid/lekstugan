@@ -112,7 +112,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 10px; /* Lite utrymme ovanför */
+            padding-bottom: 8px; /* Lite utrymme nedanför */
             z-index: 1000; /* Gör så att den ligger över allt annat */
             font-family: "Papyrus", fantasy;
             font-weight: bold;
@@ -138,11 +138,7 @@
         }
         
         
-        #main-layout {
-    display: flex; /* Gör layouten horisontellt delad */
-   
-    
-}
+
 
 #content {
     flex-grow: 1; /* Låt innehållet ta upp resterande utrymme */
@@ -188,7 +184,7 @@ background-color: rgb(98, 73, 8);
     border: 3px solid #4f612b;
     text-align: center;
     width:fit-content;
-    padding: 10px;
+    padding: 5px;
     justify-content: first baseline;
     border-radius: 5px;
 }
