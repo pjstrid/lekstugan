@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/midsummer/style.css">
+    <link rel="stylesheet" href="/lekstugan/midsummer/midsummerstyle.css">
     <title>Code game</title>
 </head>
 <body class="page1">
     <div class="flex-container">
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">1</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">2</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">3</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">4</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">5</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">6</a></button>
-        <button class="roundbutton"><a href="/midsummer/codegame2.html" class="buttontext">7</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">8</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">9</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">*</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">0</a></button>
-        <button class="roundbutton"><a href="/midsummer/wrong.html" class="buttontext">#</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">1</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">2</a></button>        
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">3</a></button>        
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">4</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">5</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">6</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/codegame2.html')"> <a class="buttontext">7</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">8</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">9</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">*</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">0</a></button>
+        <button class="pointer roundbutton" onclick="goToSite('/lekstugan/midsummer/wrong.html')"> <a class="buttontext">#</a></button>
     </div>
+    <script>
+        function goToSite(url) {
+          window.location.href = url;
+        } 
+      </script>
 </body>
 </html>

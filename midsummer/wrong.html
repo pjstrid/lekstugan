@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/midsummer/style.css">
+    <link rel="stylesheet" href="/lekstugan/midsummer/midsummerstyle.css">
     <title>Wrong</title>
 </head>
 <body class="wrong">
-    <button class="bigbutton"><a href="/midsummer/codegame1.html" class= "bigbuttontext">TRY AGAIN</a></button>
+    <button class="pointer bigbutton" onclick="goToSite('/lekstugan/midsummer/codegame1.html')"><a class="bigbuttontext">TRY AGAIN</a></button>
+    <script>
+        function goToSite(url) {
+          window.location.href = url;
+        } 
+      </script>
 </body>
 </html>
