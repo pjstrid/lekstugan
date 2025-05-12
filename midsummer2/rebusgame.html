@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebus</title>
+    <link rel="stylesheet" href="/lekstugan/midsummer2/style.css">
+</head>
+<body>
+    <div class="main">
+        <input type="password" id="passwordInput" placeholder="Skriv in lösenordet">
+        <button onclick="checkPassword()">OK</button> 
+    </div>
+    <script>
+        document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+            if (event.key =="Enter") {
+                checkPassword();
+            }
+        });
+    </script>
+    <script>
+       
+        const popup = document.createElement("div");
+        popup.id = "popup";
+        popup.style.display = "none";
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.padding = "20px";
+        popup.style.backgroundColor = "white";
+        popup.style.border = "3px solid black";
+        popup.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+        document.body.appendChild(popup);
+
+        function showPopup(message) {
+            popup.innerHTML = message;
+            popup.style.display = "block";
+
+            
+
+            setTimeout(() => {
+            popup.style.display = "none";
+            }, 10000);
+        }
+
+        function checkPassword() {
+            const correctPassword = "lösen";
+            const inputPassword = document.getElementById("passwordInput").value;
+
+            if (inputPassword === correctPassword) {
+            showPopup("SNYGGT JOBBAT!<br><br>Varsågod att ta del av överraskningen i lådan! <br><br> Koden är: 123 <br><br> Stäng lådan och håll koden & lösenordet hemligt!");
+            } else {
+            showPopup("Fel lösenord. Försök igen!");
+            }
+        }
+        
+    
+    </script>
+</body>
+</html>
