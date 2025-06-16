@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rebus</title>
-    <link rel="stylesheet" href="/lekstugan/midsummer2/style.css">
+    <link rel="stylesheet" href="/midsummer2/style.css">
 </head>
 <body>
     <div class="main">
-        <input type="text" id="passwordInput" placeholder="Skriv in lösenordet" spellcheck="false">
+        <input type="text" id="passwordInput" placeholder="Skriv in lösenordet" spellcheck="false" autocomplete="off">
         <button onclick="checkPassword()">OK</button> 
-        <p class="info">Lösenordet innehåller: <br>- En stor bokstav<br>- Elva små bokstäver <br>- Två siffror<br>- Inga specialtecken</p>
+        <p class="info">Lösenordet innehåller: <br>- En stor bokstav, följt av<br>- Elva små bokstäver, följt av <br>- Två siffror<br>- Inga specialtecken eller mellanslag</p>
     </div>
     <script>
         document.getElementById("passwordInput").addEventListener("keydown", function(event) {
@@ -44,7 +44,7 @@
 
             setTimeout(() => {
             popup.style.display = "none";
-            }, 10000);
+            }, 20000);
         }
 
         function checkPassword() {
@@ -52,7 +52,7 @@
             const inputPassword = document.getElementById("passwordInput").value;
 
             if (inputPassword === correctPassword) {
-            showPopup("SNYGGT JOBBAT!<br><br>Varsågod att ta del av överraskningen i resväskan! <br><br> Koden är: 302 <br><br> Stäng och lås resväskan!<br><br>Radera lösenordet och håll det och koden hemlig!");
+            showPopup("SNYGGT JOBBAT!<br><br>Varsågod att ta del av överraskningen i resväskan<br><br> Koden är: 302 <br><br> Stäng och lås väskan<br><br>Uppdatera sidan<br><br>Håll lösen och koden hemlig!");
             } else {
             showPopup("Fel lösenord. Försök igen!");
             }

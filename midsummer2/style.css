@@ -19,6 +19,8 @@ body {
     display: flex;
     justify-self: center;
     flex-direction: column;
+    justify-items: center;
+    align-items: center;
     gap: 5px;
     padding-top: 85px;
 }
