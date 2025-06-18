@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebus</title>
-    <link rel="stylesheet" href="/midsummer2/style.css">
+    <title>Quiz-promenad</title>
+    <link rel="stylesheet" href="/midsommar/style.css">
 </head>
 <body>
     <div class="main">
@@ -44,7 +44,7 @@
 
             setTimeout(() => {
             popup.style.display = "none";
-            }, 20000);
+            }, 30000);
         }
 
         function checkPassword() {
@@ -52,7 +52,7 @@
             const inputPassword = document.getElementById("passwordInput").value;
 
             if (inputPassword === correctPassword) {
-            showPopup("SNYGGT JOBBAT!<br><br>Varsågod att ta del av överraskningen i resväskan<br><br> Koden är: 302 <br><br> Stäng och lås väskan<br><br>Uppdatera sidan<br><br>Håll lösen och koden hemlig!");
+            showPopup("SNYGGT JOBBAT!<br><br>Varsågod att ta del av överraskningen i resväskan<br><br> Koden är: 302 <br><br> Stäng och lås väskan<br><br>Tryck F5 för att uppdatera sidan<br><br>Håll lösen och koden hemlig!");
             } else {
             showPopup("Fel lösenord. Försök igen!");
             }
