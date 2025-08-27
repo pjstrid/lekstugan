@@ -1,4 +1,4 @@
-//Genererar en kortlek med 52 kort där varje kort innehåller en färg ( suit ) och ett värde mellan 2 och 14 ( ess )
+//Genererar en kortlek med 52 kort där varje kort innehåller en färg ( suit ) och ett värde ( ranks ) mellan 2 och 14 ( ess )
 
 function createDeck() { // lägger skapandet i en funktion
     const suits = ["hjärter", "spader", "ruter", "klöver"] // skapar de fyra färgerna
@@ -25,3 +25,4 @@ for (let i = 0; i < 52; i++) {
 let testDeck = createDeck(); // skapar en ny testkortlek med hjälp av funktionen
 shuffleDeck(testDeck); // blandar kortleken med hjälp av den funktionen
 console.log(testDeck); // visar den blandade kortleken
+
